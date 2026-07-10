@@ -1,14 +1,27 @@
 # my-first-project
 
-This is a tutorial/sandbox project for learning OpenCode. There is no production code, no build/test system, and no deploy pipeline.
+CLI expense tracker (Python) and OpenCode tutorial sandbox.
 
-## What's here
+## Key facts
 
-- `opencode.tuturial.md` — a beginner's guide to OpenCode (624 lines, covers install, TUI, CLI, config, MCP, and a sample Python expense tracker project)
-
-## Working in this repo
-
-- There are no dependencies to install, no scripts to run, and no tests to execute.
-- The expense tracker described in the tutorial is a walkthrough example — it does not exist in this repo. To follow along, create an `expense-tracker/` subdirectory as the tutorial describes.
+- Default branch is `main`, not `master`. Always push to `main`.
 - No CI, linting, formatting, or typecheck tooling is configured.
-- `git` is initialized but has no commits. Running `git add -A && git commit` is safe at any time.
+
+## Project structure
+
+- `main.py` — entry point
+- `expense_tracker/` — app package (models, storage, CLI)
+- `tests/` — pytest suite (11 tests, standard library only)
+- `opencode.tuturial.md` — beginner's tutorial (read-only reference)
+
+## Commands
+
+```bash
+python main.py add <amount> <category> [--note "..."]   # add expense
+python main.py list                                       # list all
+python main.py summary                                    # monthly summary
+python main.py delete <index>                             # delete by 1-based index
+python -m pytest                                          # run tests
+```
+
+Data is stored in `expenses.json` (gitignored). Corrupt files are auto-reset.
